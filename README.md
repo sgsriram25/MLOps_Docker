@@ -361,23 +361,4 @@ docker-compose up
 
 ---
 
-## 🎯 Future Improvements
-
-- [ ] Add input validation and error handling
-- [ ] Implement logging for predictions
-- [ ] Add API endpoint returning JSON predictions
-- [ ] Deploy to cloud (AWS, GCP, Azure)
-- [ ] Add model versioning and A/B testing
-- [ ] Implement monitoring and alerting
-
----
-
-## 📧 Support
-
-For questions or issues, refer to the troubleshooting sections or check application logs for detailed error messages.
-
----
-
-**Last Updated:** February 26, 2026
-**Project:** Northeastern MSCS MLOps Lab
 
