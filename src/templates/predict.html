@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Car Evaluation Prediction</title>
+<style>
+body { font-family: Arial; background: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; }
+.card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); width: 400px; text-align: center; }
+h2 { margin-bottom: 20px; color: #333; }
+select, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+button { background-color: #28a745; color: #fff; border: none; cursor: pointer; transition: 0.3s; }
+button:hover { background-color: #218838; }
+.prediction { margin-top: 20px; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 18px; color: #fff; }
+.unacc { background-color: #dc3545; }
+.acc { background-color: #ffc107; color: #000; }
+.good { background-color: #17a2b8; }
+.vgood { background-color: #28a745; }
+label { font-weight: bold; display: block; margin-top: 15px; }
+</style>
+</head>
+<body>
+<div class="card">
+<h2>🚗 Car Evaluation</h2>
+<form method="POST">
+
+    {% set fd = form_data %}
+
+    <label>Buying Price:</label>
+    <select name="buying">
+        {% for val in dropdown_options['buying'] %}
+        <option value="{{val}}" {% if fd.get('buying')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Maintenance:</label>
+    <select name="maint">
+        {% for val in dropdown_options['maint'] %}
+        <option value="{{val}}" {% if fd.get('maint')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Doors:</label>
+    <select name="doors">
+        {% for val in dropdown_options['doors'] %}
+        <option value="{{val}}" {% if fd.get('doors')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Capacity (Persons):</label>
+    <select name="persons">
+        {% for val in dropdown_options['persons'] %}
+        <option value="{{val}}" {% if fd.get('persons')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Luggage Boot:</label>
+    <select name="lug_boot">
+        {% for val in dropdown_options['lug_boot'] %}
+        <option value="{{val}}" {% if fd.get('lug_boot')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Safety:</label>
+    <select name="safety">
+        {% for val in dropdown_options['safety'] %}
+        <option value="{{val}}" {% if fd.get('safety')==val %}selected{% endif %}>{{val}}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+<div class="prediction
+    {% if prediction=='Unacceptable Car' %}unacc
+    {% elif prediction=='Acceptable Car' %}acc
+    {% elif prediction=='Good Car' %}good
+    {% elif prediction=='Very Good Car' %}vgood
+    {% endif %}">
+    Prediction: {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+</body>
+</html>
