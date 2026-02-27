@@ -35,10 +35,7 @@ MLOps_Docker/
 │   ├── model.pkl                      # Serialized Decision Tree model
 │   └── encoders.pkl                   # Serialized LabelEncoders for all features
 └── Screenshots/
-    ├── image43.png                    # Home page form
-    ├── image.png                      # Prediction results
-    ├── image435.png                   # Docker container logs
-    └── image467.png                   # Docker build output
+
 ```
 
 ---
@@ -248,21 +245,7 @@ The application returns color-coded predictions based on the model's output:
 - 🔵 Blue: Good Car
 - 🟢 Green: Very Good Car
 
-### 3. Docker Container Running
-Shows the Flask application successfully started inside a Docker container:
 
-![Docker Run Output](Screenshots/image435.png)
-
-**Console shows:**
-- Flask server starting on 0.0.0.0:4000
-- Debug mode enabled
-- LabelEncoder classes loaded for each feature
-- Ready to accept predictions
-
-### 4. Docker Build Process
-Demonstrates the multi-step build process creating the image:
-
-![Docker Build Logs](Screenshots/image467.png)
 
 **Build steps:**
 - Base image download
